@@ -8,5 +8,5 @@
 
 (include-lib "ltest/include/ltest-macros.lfe")
 
-(deftest my-adder
-  (is-equal 4 (: lric my-adder 2 2)))
+(deftest placeholder
+  (is-equal 1 1))
