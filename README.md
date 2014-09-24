@@ -1,9 +1,11 @@
 # lric
 
+*An LFE riak & riak cs client wrapper*
+
 
 ## Introduction
 
-Add content to me here!
+Mostly because the modules in the Erlang client for riak are too cumbersome.
 
 
 ## Installation
@@ -14,7 +16,7 @@ Just add it to your ``rebar.config`` deps:
   {deps, [
     ...
     {lric, ".*",
-      {git, "git@github.com:YOURNAME/lric.git", "master"}}
+      {git, "git@github.com:billota/lric.git", "master"}}
       ]}.
 ```
 
