@@ -1,5 +1,7 @@
 # lric
 
+<img src="resources/images/elric-small.jpg" />
+
 *An LFE riak & riak cs client wrapper*
 
 
