@@ -18,7 +18,7 @@ Just add it to your ``rebar.config`` deps:
   {deps, [
     ...
     {lric, ".*",
-      {git, "git@github.com:billota/lric.git", "master"}}
+      {git, "git@github.com:billosys/lric.git", "master"}}
       ]}.
 ```
 
