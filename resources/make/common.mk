@@ -103,7 +103,11 @@ check-all: get-deps compile-no-deps clean-eunit
 
 check: check-unit-with-deps
 
-check-travis: $(LFETOOL) check
+pre-travis-check:
+	-@make compile
+	-@make compile-no-deps
+
+check-travis: $(LFETOOL) pre-travis-check check
 
 push-all:
 	@echo "Pusing code to github ..."
