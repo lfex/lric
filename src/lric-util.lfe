@@ -36,3 +36,11 @@
       (lambda (x)
         (append-integer 'arg- x))
       (lists:seq 1 arity))))
+
+(defun make-func
+  ((`(,func-name ,func-arity))
+   `(defun ,func-name ,(make-args func-arity)
+     'noop)))
+
+(defun make-funcs (func-list)
+  (lists:map #'make-func/1 func-list))

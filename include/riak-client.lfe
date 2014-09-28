@@ -55,84 +55,13 @@
     (update-type 4) (update-type 5)
     (modify-type 5)))
 
-  ; '(start-link
-  ;   start
-  ;   stop
-  ;   set-options
-  ;   is-connected
-  ;   ping
-  ;   get-client-id
-  ;   set-client-id
-  ;   get-server-info
-  ;   get
-  ;   put
-  ;   delete
-  ;   delete-vclock
-  ;   delete-obj
-  ;   list-buckets
-  ;   stream-list-buckets
-  ;   legacy-list-buckets
-  ;   list-keys
-  ;   stream-list-keys
-  ;   get-bucket
-  ;   get-bucket-type
-  ;   set-bucket
-  ;   set-bucket-type
-  ;   reset-bucket
-  ;   mapred
-  ;   mapred-stream
-  ;   mapred-bucket
-  ;   mapred-bucket-stream
-  ;   search
-  ;   get-index-eq
-  ;   cs-bucket-fold
-  ;   default-timeout
-  ;   tunnel
-  ;   ;; Counter API
-  ;   counter-incr
-  ;   counter-val
-  ;   ;; with options
-  ;   counter-incr
-  ;   counter-val
-  ;   init
-  ;   handle-call
-  ;   handle-cast
-  ;   handle-info
-  ;   terminate
-  ;   code-change
-  ;   ;; Yokozuna admin commands
-  ;   list-search-indexes
-  ;   create-search-index
-  ;   get-search-index
-  ;   delete-search-index
-  ;   set-search-index
-  ;   get-search-schema
-  ;   create-search-schema
-  ;   ;; Datatypes API
-  ;   fetch-type
-  ;   update-type
-  ;   modify-type))
-
-  ; (defun make-func
-  ;   (('(,func ,arity))
-  ;    `(defun ,(lric-util:replace-dash func) (x)
-  ;       x)))
-
   (defun get-funcs ()
     '((a 0) (b 1) (c 2) (d 3)))
-
-  (defun make-funcs (func-list)
-    (lists:map #'make-func/1 func-list))
-
-  (defun make-func
-    ((`(,func-name ,func-arity))
-     `(defun ,func-name ,(lric-util:make-args func-arity)
-       'noop)))
 
 ;; end of (eval-when-compile ...)
 )
 
 (defmacro generate-api ()
-  `(progn ,@(make-funcs (get-funcs))))
+  `(progn ,@(lric-util:make-funcs (get-funcs))))
 
 (generate-api)

@@ -45,3 +45,21 @@
   (is-equal '(arg-1) (lric-util:make-args 1))
   (is-equal '(arg-1 arg-2) (lric-util:make-args 2))
   (is-equal '(arg-1 arg-2 arg-3 arg-4) (lric-util:make-args 4)))
+
+(deftest make-func
+  (is-equal
+    '(defun my-func-name () 'noop)
+    (lric-util:make-func '(my-func-name 0)))
+  (is-equal
+    '(defun my-func-name (arg-1) 'noop)
+    (lric-util:make-func '(my-func-name 1)))
+  (is-equal
+    '(defun my-func-name (arg-1 arg-2) 'noop)
+    (lric-util:make-func '(my-func-name 2))))
+
+(deftest make-funcs
+  (is-equal
+    '((defun func-y () 'noop)
+      (defun func-y (arg-1) 'noop)
+      (defun func-y (arg-1 arg-2) 'noop))
+    (lric-util:make-funcs '((func-y 0) (func-y 1) (func-y 2)))))
