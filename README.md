@@ -105,7 +105,7 @@ Now let's get it back out of Riak:
     undefined))
 ```
 
-That's the complete Riak object; how do we get the value? Simple call
+That's the complete Riak object; how do we get the value? Simply call
 the appropriate object function:
 
 ```cl
