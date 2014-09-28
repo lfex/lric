@@ -2,5 +2,7 @@
 (defmodule lric
   (export all))
 
+(include-lib "lric/include/riak-client.lfe")
+
 (defun noop ()
   'noop)

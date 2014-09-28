@@ -9,5 +9,10 @@
 (include-lib "ltest/include/ltest-macros.lfe")
 (include-lib "lric/include/riak-client.lfe")
 
-(deftest placeholder
-  (is-equal 1 1))
+(deftest generate-api
+  (is-equal 'noop (a))
+  ; (is-equal 'noop (b))
+  ; (is-equal 'noop (c))
+  (is-equal 'noop (b 'thing))
+  (is-equal 'noop (c 'another 'thing))
+  )
