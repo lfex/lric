@@ -7,7 +7,8 @@
 
 ## Introduction
 
-Mostly because the modules in the Erlang client for riak are too cumbersome.
+Mostly because the module names of the Erlang Riak client are a bit cumbersome.
+And not Lispy.
 
 
 ## Prerequisites
@@ -28,11 +29,10 @@ Just add it to your ``rebar.config`` deps:
       ]}.
 ```
 
-And then do the usual:
+And then do:
 
 ```bash
-    $ rebar get-deps
-    $ rebar compile
+    $ make compile
 ```
 
 
@@ -48,7 +48,7 @@ LFE Shell V6.2 (abort with ^G)
 >
 ```
 
-Let's start up a link to the Riak server and define some variables:
+Then let's connect to the Riak server and define some variables:
 
 ```cl
 > (set `#(ok ,pid) (lric:start-link "127.0.0.1" 8087))
@@ -105,8 +105,15 @@ Now let's get it back out of Riak:
     undefined))
 ```
 
-That's the complete Riak object; how do we get the value? Simply call
+That's the complete Riak object; how do we get just the value? Simply call
 the appropriate object function:
+
+```cl
+> (lrico:get-value result)
+#B(97 32 118 97 108 117 101)
+```
+
+Or the more readable:
 
 ```cl
 > (binary_to_list (lrico:get-value result))
