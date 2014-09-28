@@ -28,8 +28,11 @@
   ((item integer) (when (is_integer item))
     (-append-integer (integer_to_list item) integer)))
 
-(defun make-args (arity)
-  (lists:map
-    (lambda (x)
-      (append-integer 'arg- x))
-    (lists:seq 1 arity)))
+(defun make-args
+  ((arity) (when (== arity 0))
+    '())
+  ((arity)
+    (lists:map
+      (lambda (x)
+        (append-integer 'arg- x))
+      (lists:seq 1 arity))))

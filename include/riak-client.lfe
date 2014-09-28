@@ -119,16 +119,16 @@
   ;       x)))
 
   (defun get-funcs ()
-    '((a 0) (b 1) (c 3)))
+    '((a 0) (b 1) (c 2) (d 3)))
 
   (defun make-funcs (func-list)
     (lists:map #'make-func/1 func-list))
 
   (defun make-func
-    ((`(,func-name ,func-arity)) (when (== func-arity 0))
-     `(defun ,func-name () 'noop))
     ((`(,func-name ,func-arity))
-     `(defun ,func-name () 'noop)))
+     `(defun ,func-name ,(lric-util:make-args func-arity)
+       'noop)))
+
 ;; end of (eval-when-compile ...)
 )
 

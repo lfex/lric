@@ -41,6 +41,7 @@
   (is-equal "21" (lric-util:append-integer 002 001)))
 
 (deftest make-args
+  (is-equal '() (lric-util:make-args 0))
   (is-equal '(arg-1) (lric-util:make-args 1))
   (is-equal '(arg-1 arg-2) (lric-util:make-args 2))
   (is-equal '(arg-1 arg-2 arg-3 arg-4) (lric-util:make-args 4)))
