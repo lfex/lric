@@ -1,4 +1,4 @@
-(defmodule unit-riak-client-macro-tests
+(defmodule unit-macros-riak-client-tests
   (behaviour ltest-unit)
   (export all)
   (import
