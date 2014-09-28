@@ -55,7 +55,7 @@ clean-ebin:
 	@rm -f $(OUT_DIR)/*.beam
 
 clean-eunit:
-	@PATH=$(SCRIPT_PATH) $(LFETOOL) tests clean
+	-@PATH=$(SCRIPT_PATH) $(LFETOOL) tests clean
 
 compile: get-deps clean-ebin
 	@echo "Compiling project code and dependencies ..."
