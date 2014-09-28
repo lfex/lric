@@ -105,11 +105,10 @@ check: check-unit-with-deps
 
 pre-travis-check:
 	-@make compile
-	-@make compile-no-deps
+	@make compile-no-deps
 
 check-travis:
-	-@make $(LFETOOL)
-	-@pre-travis-check
+	@pre-travis-check
 	make check
 
 push-all:
