@@ -4,8 +4,8 @@ script: "make check"
 notifications:
   irc: "irc.freenode.org#bolya"
   recipients:
-    - billo@bolyan.de
+    - bill.ota@billo.systems
 otp_release:
-  - 17.0
+  - 17.1
   - R16B03
   - R15B03
