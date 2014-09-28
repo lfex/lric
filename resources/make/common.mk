@@ -107,7 +107,10 @@ pre-travis-check:
 	-@make compile
 	-@make compile-no-deps
 
-check-travis: $(LFETOOL) pre-travis-check check
+check-travis:
+	-@make $(LFETOOL)
+	-@pre-travis-check
+	make check
 
 push-all:
 	@echo "Pusing code to github ..."
