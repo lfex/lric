@@ -38,9 +38,14 @@
       (lists:seq 1 arity))))
 
 (defun make-func
-  ((`(,func-name ,func-arity))
-   `(defun ,func-name ,(make-args func-arity)
-     'noop)))
+  ((`(,lfe-func-name ,func-arity) mod)
+    (let ((erlang-func-name (replace-dash lfe-func-name))
+          (func-args (make-args func-arity)))
+      `(defun ,lfe-func-name ,func-args
+        (apply ',mod ',erlang-func-name ',func-args)))))
 
-(defun make-funcs (func-list)
-  (lists:map #'make-func/1 func-list))
+(defun make-funcs (func-list mod)
+  (lists:map
+    (lambda (x)
+      (make-func x mod))
+    func-list))
