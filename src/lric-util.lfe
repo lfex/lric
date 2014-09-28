@@ -42,7 +42,7 @@
     (let ((erlang-func-name (replace-dash lfe-func-name))
           (func-args (make-args func-arity)))
       `(defun ,lfe-func-name ,func-args
-        (apply ',mod ',erlang-func-name ',func-args)))))
+        (apply ',mod ',erlang-func-name (list ,@func-args))))))
 
 (defun make-funcs (func-list mod)
   (lists:map
