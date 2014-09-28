@@ -49,23 +49,23 @@
 (deftest make-func
   (is-equal
     '(defun my-func-name ()
-      (apply 'mod-1 'my_func_name '()))
+      (apply 'mod-1 'my_func_name (list )))
     (lric-util:make-func '(my-func-name 0) 'mod-1))
   (is-equal
     '(defun my-func-name (arg-1)
-      (apply 'mod-2 'my_func_name '(arg-1)))
+      (apply 'mod-2 'my_func_name (list arg-1)))
     (lric-util:make-func '(my-func-name 1) 'mod-2))
   (is-equal
     '(defun my-func-name (arg-1 arg-2)
-      (apply 'mod-3 'my_func_name '(arg-1 arg-2)))
+      (apply 'mod-3 'my_func_name (list arg-1 arg-2)))
     (lric-util:make-func '(my-func-name 2) 'mod-3)))
 
 (deftest make-funcs
   (is-equal
     '((defun func-y ()
-        (apply 'my-mod 'func_y '()))
+        (apply 'my-mod 'func_y (list)))
       (defun func-y (arg-1)
-        (apply 'my-mod 'func_y '(arg-1)))
+        (apply 'my-mod 'func_y (list arg-1)))
       (defun func-y (arg-1 arg-2)
-        (apply 'my-mod 'func_y '(arg-1 arg-2))))
+        (apply 'my-mod 'func_y (list arg-1 arg-2))))
     (lric-util:make-funcs '((func-y 0) (func-y 1) (func-y 2)) 'my-mod)))
