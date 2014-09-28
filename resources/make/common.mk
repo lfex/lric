@@ -57,31 +57,28 @@ clean-ebin:
 clean-eunit:
 	-@PATH=$(SCRIPT_PATH) $(LFETOOL) tests clean
 
-compile: get-deps clean-ebin
-	@echo "Compiling project code and dependencies ..."
-	@which rebar.cmd >/dev/null 2>&1 && \
-	PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) rebar.cmd compile || \
-	PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) rebar compile
-
-compile-no-deps: clean-ebin
-	@echo "Compiling only project code ..."
-	@which rebar.cmd >/dev/null 2>&1 && \
-	PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) \
-	rebar.cmd compile skip_deps=true || \
-	PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) rebar compile skip_deps=true
-
 compile-tests: clean-eunit
 	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) tests build
 
 repl: compile
 	@which clear >/dev/null 2>&1 && clear || printf "\033c"
-	@echo "Starting shell ..."
+	@echo "Starting an LFE REPL ..."
 	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) repl
 
 repl-no-deps: compile-no-deps
 	@which clear >/dev/null 2>&1 && clear || printf "\033c"
-	@echo "Starting shell ..."
+	@echo "Starting an LFE REPL ..."
 	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) $(LFETOOL) repl
+
+shell: compile
+	@which clear >/dev/null 2>&1 && clear || printf "\033c"
+	@echo "Starting an Erlang shell ..."
+	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) erl
+
+shell-no-deps: compile-no-deps
+	@which clear >/dev/null 2>&1 && clear || printf "\033c"
+	@echo "Starting an Erlang shell ..."
+	@PATH=$(SCRIPT_PATH) ERL_LIBS=$(ERL_LIBS) erl
 
 clean: clean-ebin clean-eunit
 	@which rebar.cmd >/dev/null 2>&1 && rebar.cmd clean || rebar clean
