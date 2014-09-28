@@ -27,3 +27,9 @@
     (list_to_atom (-append-integer (atom_to_list item) integer)))
   ((item integer) (when (is_integer item))
     (-append-integer (integer_to_list item) integer)))
+
+(defun make-args (arity)
+  (lists:map
+    (lambda (x)
+      (append-integer 'arg- x))
+    (lists:seq 1 arity)))

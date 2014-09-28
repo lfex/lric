@@ -39,3 +39,8 @@
   (is-equal "200100" (lric-util:append-integer 200 100))
   (is-equal "2001001" (lric-util:append-integer 200 1001))
   (is-equal "21" (lric-util:append-integer 002 001)))
+
+(deftest make-args
+  (is-equal '(arg-1) (lric-util:make-args 1))
+  (is-equal '(arg-1 arg-2) (lric-util:make-args 2))
+  (is-equal '(arg-1 arg-2 arg-3 arg-4) (lric-util:make-args 4)))
