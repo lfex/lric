@@ -59,6 +59,6 @@
 )
 
 (defmacro generate-api ()
-  `(progn ,@(lric-util:make-funcs (get-api-funcs) 'riakc_pb_socket)))
+  `(progn ,@(kla:make-funcs (get-api-funcs) 'riakc_pb_socket)))
 
 (generate-api)
