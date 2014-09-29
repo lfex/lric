@@ -103,7 +103,7 @@ check-all: get-deps compile-no-deps clean-eunit
 
 check: check-unit-with-deps
 
-check-travis: compile check-unit-only
+check-travis: compile compile-tests check-unit-only
 
 push-all:
 	@echo "Pusing code to github ..."
