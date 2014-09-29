@@ -17,7 +17,7 @@ LFETOOL=$(BIN_DIR)/lfetool
 else
 LFETOOL=lfetool
 endif
-ERL_LIBS=$(shell $(LFETOOL) info erllibs):.:..
+ERL_LIBS = .:..:../lric:$(shell $(LFETOOL) info erllibs)
 OS := $(shell uname -s)
 ifeq ($(OS),Linux)
         HOST=$(HOSTNAME)
@@ -38,7 +38,7 @@ get-version:
 	@PATH=$(SCRIPT_PATH) $(LFETOOL) info version
 	@echo "Erlang/OTP, LFE, & library versions:"
 	@ERL_LIBS=$(ERL_LIBS) PATH=$(SCRIPT_PATH) erl \
-	-eval "lfe_io:format(\"~p~n\",[lutil:'get-versions'()])." \
+	-eval "lfe_io:format(\"~p~n\",['lric-util':'get-versions'()])." \
 	-noshell -s erlang halt
 
 $(EXPM): $(BIN_DIR)
@@ -103,13 +103,7 @@ check-all: get-deps compile-no-deps clean-eunit
 
 check: check-unit-with-deps
 
-pre-travis-check:
-	-@make compile
-	@make compile-no-deps
-
-check-travis:
-	@pre-travis-check
-	make check
+check-travis: compile check-unit-only
 
 push-all:
 	@echo "Pusing code to github ..."
