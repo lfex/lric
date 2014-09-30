@@ -1,6 +1,6 @@
 language: erlang
 before_install:
-  - sudo apt-get install protobuf-compiler
+  - sudo apt-get install protobuf-compiler libprotoc-dev libprotobuf-dev
 install:
   - "echo 'Nothing to install; skipping ...'"
 before_script:
