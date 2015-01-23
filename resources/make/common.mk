@@ -2,7 +2,7 @@ ifeq ($(shell which erl),)
 $(error Can't find Erlang executable 'erl')
 exit 1
 endif
-PROJECT = lric
+
 LIB = $(PROJECT)
 DEPS = ./deps
 BIN_DIR = ./bin
@@ -17,7 +17,7 @@ LFETOOL=$(BIN_DIR)/lfetool
 else
 LFETOOL=lfetool
 endif
-ERL_LIBS = .:..:../lric:$(shell $(LFETOOL) info erllibs)
+ERL_LIBS = .:$(shell pwd):$(shell $(LFETOOL) info erllibs)
 OS := $(shell uname -s)
 ifeq ($(OS),Linux)
         HOST=$(HOSTNAME)
@@ -48,7 +48,6 @@ $(EXPM): $(BIN_DIR)
 get-deps:
 	@echo "Getting dependencies ..."
 	@which rebar.cmd >/dev/null 2>&1 && rebar.cmd get-deps || rebar get-deps
-	@PATH=$(SCRIPT_PATH) $(LFETOOL) update deps
 
 clean-ebin:
 	@echo "Cleaning ebin dir ..."
