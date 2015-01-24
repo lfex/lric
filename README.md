@@ -124,7 +124,7 @@ Or the more readable:
 ## Documentation
 
 For more usage examples, see the following docs (all of which are being ported
-by Billo from the [Basho originals]()):
+by Billo from the [Basho originals](http://docs.basho.com/riak/latest/)):
 
  * [Taste of Riak](http://billo.gitbooks.io/lfe-taste-of-riak/content/index.html)
  * The Little Riak Book (TBD)
