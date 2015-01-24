@@ -1,8 +1,8 @@
 # lric
 
-<img src="resources/images/elric-small.jpg" />
-
 *An LFE riak & riak cs client wrapper*
+
+<img src="resources/images/elric-small.jpg" />
 
 
 ## Introduction
@@ -120,9 +120,14 @@ Or the more readable:
 "a value"
 ```
 
-For more usage examples, see the docs (all of which were converted from
-Basho's Riak guide):
 
- * <a href="doc/crud-ops.md">CRUD Operations</a>
- * <a href="doc/querying.md">A Taste of Querying</a>
- * <a href="doc/obj-model.md">Object Modeling</a>
+## Documentation
+
+For more usage examples, see the following docs (all of which are being ported
+by Billo from the [Basho originals]()):
+
+ * [Taste of Riak](http://billo.gitbooks.io/lfe-taste-of-riak/content/index.html)
+ * The Little Riak Book (TBD)
+ * Basic Usage (TBD)
+ * Riak Search (TBD)
+ * Riak Data Types (TBD)
