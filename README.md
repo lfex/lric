@@ -110,3 +110,14 @@ originals](http://docs.basho.com/riak/latest/)):
  * Basic Usage (TBD)
  * Riak Search (TBD)
  * Riak Data Types (TBD)
+
+
+## License [&#x219F;](#contents)
+
+Apache License, Version 2.0
+
+Copyright © 2014-2017, BilloSystems, Ltd. Co.
+
+Copyright © 2017, Ricardo Lanziano
+
+Copyright © 2017, Duncan McGreggor
