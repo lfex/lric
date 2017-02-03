@@ -8,135 +8,126 @@
 
 [![][project-logo]][project-logo-large]
 
-*An LFE riak & riak cs client wrapper*
+*Riak & Riak CS client wrappers for LFE*
 
 
 ## Introduction
 
-Mostly because the module names of the Erlang Riak client are a bit cumbersome.
-And not Lispy.
-
-
-## Prerequisites
-
-You will need ``protoc`` in your ``$PATH``. Installing Protocol Buffers will
-do the trick.
-
+Mostly because the module names of the Erlang Riak client are a bit
+cumbersome. And not Lispy.
 
 ## Installation
 
-Just add it to your ``rebar.config`` deps:
+You need to use rebar3. Just add it to your `rebar.config` deps:
 
 ```erlang
   {deps, [
-    ...
-    {lric, ".*",
-      {git, "git@github.com:billosys/lric.git", "master"}}
-      ]}.
+    {lric, {git, "git@github.com:lfex/lric.git", {branch, "master"}}}
+  ]}.
 ```
 
 And then do:
 
 ```bash
-    $ make compile
+$ rebar3 compile
 ```
-
 
 ## Usage
 
-Below is a quick sample from the Riak docs converted to LFE and lric. First,
-let's start up the LFE REPL:
+Below is a quick sample from the Riak docs converted to LFE and
+lric. First, let's start up the LFE REPL:
 
 ```bash
-$ make repl-no-deps
-...
-LFE Shell V6.2 (abort with ^G)
->
+$ lfe
+Erlang/OTP 19 [erts-8.2.1] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:10] [hipe] [kernel-poll:false]
+
+   ..-~.~_~---..
+  (      \\     )    |   A Lisp-2+ on the Erlang VM
+  |`-.._/_\\_.-':    |   Type (help) for usage info.
+  |         g |_ \   |
+  |        n    | |  |   Docs: http://docs.lfe.io/
+  |       a    / /   |   Source: http://github.com/rvirding/lfe
+   \     l    |_/    |
+    \   r     /      |   LFE v1.3-dev (abort with ^G)
+     `-E___.-'
+
+lfe>
 ```
 
 Then let's connect to the Riak server and define some variables:
 
 ```cl
-> (set `#(ok ,pid) (lric:start-link "127.0.0.1" 8087))
+lfe> (set `#(ok ,pid) (lric:start-link "127.0.0.1" 8087))
 #(ok <0.32.0>)
-> (set my-bucket (binary "test"))
-#B(116 101 115 116)
-> (set key (binary "key"))
-#B(107 101 121)
-> (set value (binary "a value"))
-#B(97 32 118 97 108 117 101)
+lfe> (set my-bucket #"test")
+#"test"
+lfe> (set key #"key")
+#"key"
+lfe> (set value #"a value")
+#"a value"
 ```
 
 With these in place, we can create an object:
 
 ```cl
-> (set obj (lrico:new my-bucket key value))
-#(riakc_obj
-  #B(116 101 115 116)
-  #B(107 101 121)
-  undefined
-  ()
-  undefined
-  #B(97 32 118 97 108 117 101))
->
+lfe> (set obj (lrico:new my-bucket key value))
+#(riakc_obj #"test" #"key" undefined () undefined #"a value")
+lfe>
 ```
 
-and then store it in Riak:
+And then store it in Riak:
 
 ```cl
-> (lric:put pid obj)
+lfe> (lric:put pid obj)
 ok
 ```
 
 Now let's get it back out of Riak:
 
 ```cl
-> (set `#(ok ,result) (lric:get pid my-bucket key))
+lfe> (set `#(ok ,result) (lric:get pid my-bucket key))
 #(ok
   #(riakc_obj
-    #B(116 101 115 116)
-    #B(107 101 121)
-    #B(107 206 97 96 96 96 204 96 ...)
-    (#(#(dict
-         2
-         16
-         16
-         8
-         80
-         48
-         #(() () () () () () () () () () () () ...)
-         #(#(() () () () () () () () () () ...)))
-       #B(97 32 118 97 108 117 101)))
-    undefined
-    undefined))
+    #"test"
+    #"key"
+    #B(107 206 97 96 96 96 204 96 202 5 82 60 202 156 255 126 62 191 180 112 62 3 243 247 133 25 ...)
+    (#(#(dict 2 16 16 8 80 48
+         #(() () () () () () () () () () () () () () () ...)
+         #(#(() () () () () () () () () () ((#"X-Riak-VTag" ...)) () () ...)))
+       #"a value"))
+    undefined undefined))
 ```
 
-That's the complete Riak object; how do we get just the value? Simply call
-the appropriate object function:
+That's the complete Riak object; how do we get just the value? Simply
+call the appropriate object function:
 
 ```cl
-> (lrico:get-value result)
-#B(97 32 118 97 108 117 101)
+lfe> (lrico:get-value result)
+#"a value"
 ```
-
-Or the more readable:
-
-```cl
-> (binary_to_list (lrico:get-value result))
-"a value"
-```
-
 
 ## Documentation
 
-For more usage examples, see the following docs (all of which are being ported
-by Billo from the [Basho originals](http://docs.basho.com/riak/latest/)):
+For more usage examples, see the following docs (all of which are
+being ported by Billo from the [Basho
+originals](http://docs.basho.com/riak/latest/)):
 
  * [Taste of Riak](http://billo.gitbooks.io/lfe-taste-of-riak/content/index.html)
  * The Little Riak Book (TBD)
  * Basic Usage (TBD)
  * Riak Search (TBD)
  * Riak Data Types (TBD)
+
+
+## License [&#x219F;](#contents)
+
+Apache License, Version 2.0
+
+Copyright © 2014-2017, BilloSystems, Ltd. Co.
+
+Copyright © 2017, Ricardo Lanziano
+
+Copyright © 2017, Duncan McGreggor
 
 
 <!-- Named page links below: /-->
