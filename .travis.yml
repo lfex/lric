@@ -4,7 +4,7 @@ before_install:
 install:
   - "echo 'Nothing to install; skipping ...'"
 script:
-  - "make check-travis"
+  - rebar3 eunit
 notifications:
   irc: "irc.freenode.org#bolya"
   recipients:
