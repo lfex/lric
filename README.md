@@ -49,7 +49,7 @@ Below is a quick sample from the Riak docs converted to LFE and
 lric. First, let's start up the LFE REPL:
 
 ```
-$ lfe
+$ make repl
 Erlang/OTP 19 [erts-8.2.1] [source] [64-bit] [smp:4:4] [ds:4:4:10] ...
 
    ..-~.~_~---..
