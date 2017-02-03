@@ -1,8 +1,10 @@
 (defmodule unit-lrico-tests
-  (behaviour ltest-unit)
-  (export all))
+  (behaviour ltest-unit))
 
 (include-lib "ltest/include/ltest-macros.lfe")
+
+(defun get-test-file ()
+  "./_build/test/lib/lric/ebin/lrico.beam")
 
 (deftest function-checks
   (is (is_function #'lrico:new/2))
@@ -14,8 +16,8 @@
   (is (is_function #'lrico:add-link/2)))
 
 (deftest export-count
-  (let* ((chunks (beam_lib:chunks "ebin/lrico.beam" '(exports)))
+  (let* ((chunks (beam_lib:chunks (get-test-file) '(exports)))
          (exports (proplists:get_value
                     'exports
                        (element 2 (element 2 chunks)))))
-    (is-equal 46 (length exports))))
+    (is-equal 48 (length exports))))
