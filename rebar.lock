@@ -1,0 +1,20 @@
+{"1.1.0",
+[{<<"hamcrest">>,
+  {git,"https://github.com/basho/hamcrest-erlang.git",
+       {ref,"98bc7aa19ea081478c816824aa05fc5a48acae66"}},
+  2},
+ {<<"kla">>,{pkg,<<"kla">>,<<"0.8.0-rc4">>},0},
+ {<<"lfe">>,{pkg,<<"lfe">>,<<"1.2.0">>},0},
+ {<<"riak_pb">>,
+  {git,"https://github.com/basho/riak_pb",
+       {ref,"6c67dc58251e1a1c29b2e0c444b1e9c9aa2d4a24"}},
+  1},
+ {<<"riakc">>,
+  {git,"git@github.com:basho/riak-erlang-client",
+       {ref,"f3e64014d90c261880f5b06113bb604a6d5df495"}},
+  0}]}.
+[
+{pkg_hash,[
+ {<<"kla">>, <<"0E6A7FD64A387E746F081D28C6793200CFC1F01126E36C975A6A91E8858E1C4B">>},
+ {<<"lfe">>, <<"257708859C0A6949F174CECEE6F08BB5D6F08C0F97EC7B75C07072014723ECBC">>}]}
+].

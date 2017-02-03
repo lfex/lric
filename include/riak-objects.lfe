@@ -1,7 +1,4 @@
-;; If you want to call functions from macros) they need to be
-;; wrapped in (eval-when-compile ...).
 (eval-when-compile
-
   (defun get-api-funcs ()
     '((new 2) (new 3) (new 4)
       (bucket-type 1)
@@ -19,8 +16,7 @@
       (get-value 1)
       (get-values 1)
       (update-metadata 2)
-      (update-value 2)
-      (update-value 3)
+      (update-value 2) (update-value 3)
       (update-content-type 2)
       (get-update-metadata 1)
       (get-update-content-type 1)
@@ -43,10 +39,7 @@
       (clear-links 1)
       (delete-links 2)
       (set-link 2)
-      (add-link 2)))
-
-;; end of (eval-when-compile ...)
-)
+      (add-link 2))))
 
 (defmacro generate-api ()
   `(progn ,@(kla:make-funcs (get-api-funcs) 'riakc_obj)))
