@@ -152,8 +152,8 @@ Copyright © 2017, Duncan McGreggor
 [travis]: https://travis-ci.org/lfex/lric
 [travis badge]: https://img.shields.io/travis/lfex/lric.svg
 [lfe]: https://github.com/rvirding/lfe
-[lfe badge]: https://img.shields.io/badge/lfe-1.2.0-blue.svg
-[erlang badge]: https://img.shields.io/badge/erlang-17%20to%2019-blue.svg
+[lfe badge]: https://img.shields.io/badge/lfe-1.2+-blue.svg
+[erlang badge]: https://img.shields.io/badge/erlang-17+-blue.svg
 [versions]: https://github.com/lfex/lric/blob/master/.travis.yml
 [github tags]: https://github.com/lfex/lric/tags
 [github tags badge]: https://img.shields.io/github/tag/lfex/lric.svg
