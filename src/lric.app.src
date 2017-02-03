@@ -1,12 +1,12 @@
-{application, 'lric',
+{application, lric,
  [
   {description, "Riak & Riak CS client wrappers for LFE"},
   {vsn, "0.0.1"},
   {modules,
    [
-    'lric',
-    'lrico',
-    'lrics'
+    lric,
+    lrico,
+    lrics
    ]},
   {registered, []},
   {applications,
@@ -18,6 +18,15 @@
    ]},
 
   {included_applications, []},
-  {env, []}
- ]
-}.
+  {env, []},
+
+  %% Package metadata:
+  {pkg_name, lric},
+  {maintainers, ["Duncan McGreggor"]},
+  {licenses, ["Apache-2"]},
+  {links,
+   [{"GitHub", "https://github.com/lfex/lric"},
+    {"Gitlab", "https://gitlab.com/lfex/lric"},
+    {"Hex", "https://hex.pm/packages/lric"}
+   ]}
+ ]}.
