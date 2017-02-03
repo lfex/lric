@@ -1,8 +1,14 @@
 # lric
 
-*An LFE riak & riak cs client wrapper*
+[![Build Status][travis badge]][travis]
+[![LFE Versions][lfe badge]][lfe]
+[![Erlang Versions][erlang badge]][versions]
+[![Tags][github tags badge]][github tags]
+[![Downloads][hex downloads]][hex package]
 
-<img src="resources/images/elric-small.jpg" />
+[![][project-logo]][project-logo-large]
+
+*An LFE riak & riak cs client wrapper*
 
 
 ## Introduction
@@ -131,3 +137,24 @@ by Billo from the [Basho originals](http://docs.basho.com/riak/latest/)):
  * Basic Usage (TBD)
  * Riak Search (TBD)
  * Riak Data Types (TBD)
+
+
+<!-- Named page links below: /-->
+
+[project-logo]: resources/images/elric-small.png
+[project-logo-large]: resources/images/elric-large.png
+[org]: https://github.com/lfex
+[github]: https://github.com/lfex/lric
+[gitlab]: https://gitlab.com/lfex/lric
+[travis]: https://travis-ci.org/lfex/lric
+[travis badge]: https://img.shields.io/travis/lfex/lric.svg
+[lfe]: https://github.com/rvirding/lfe
+[lfe badge]: https://img.shields.io/badge/lfe-1.2.0-blue.svg
+[erlang badge]: https://img.shields.io/badge/erlang-17%20to%2019-blue.svg
+[versions]: https://github.com/lfex/lric/blob/master/.travis.yml
+[github tags]: https://github.com/lfex/lric/tags
+[github tags badge]: https://img.shields.io/github/tag/lfex/lric.svg
+[github downloads]: https://img.shields.io/github/downloads/atom/atom/total.svg
+[hex badge]: https://img.shields.io/hexpm/v/lric.svg?maxAge=2592000
+[hex package]: https://hex.pm/packages/lric
+[hex downloads]: https://img.shields.io/hexpm/dt/lric.svg
