@@ -1,7 +1,7 @@
 {application, lric,
  [
   {description, "Riak & Riak CS client wrappers for LFE"},
-  {vsn, "0.0.1"},
+  {vsn, "0.3.0"},
   {modules,
    [
     lric,
