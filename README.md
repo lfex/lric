@@ -11,12 +11,22 @@
 *Riak & Riak CS client wrappers for LFE*
 
 
-## Introduction
+## Contents
+
+* [Introduction](#introduction-)
+* [Installation](#installation-)
+* [Usage](#usage-)
+* [Documentation](#documentation-)
+* [License](#license-)
+
+
+## Introduction [&#x219F;](#contents)
 
 Mostly because the module names of the Erlang Riak client are a bit
 cumbersome. And not Lispy.
 
-## Installation
+
+## Installation [&#x219F;](#contents)
 
 You need to use rebar3. Just add it to your `rebar.config` deps:
 
@@ -32,14 +42,15 @@ And then do:
 $ rebar3 compile
 ```
 
-## Usage
+
+## Usage [&#x219F;](#contents)
 
 Below is a quick sample from the Riak docs converted to LFE and
 lric. First, let's start up the LFE REPL:
 
-```bash
+```
 $ lfe
-Erlang/OTP 19 [erts-8.2.1] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:10] [hipe] [kernel-poll:false]
+Erlang/OTP 19 [erts-8.2.1] [source] [64-bit] [smp:4:4] [ds:4:4:10] ...
 
    ..-~.~_~---..
   (      \\     )    |   A Lisp-2+ on the Erlang VM
@@ -106,7 +117,8 @@ lfe> (lrico:get-value result)
 #"a value"
 ```
 
-## Documentation
+
+## Documentation [&#x219F;](#contents)
 
 For more usage examples, see the following docs (all of which are
 being ported by Billo from the [Basho
